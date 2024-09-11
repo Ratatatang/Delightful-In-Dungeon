@@ -2,6 +2,7 @@ package com.figgity.delightindungeon;
 
 import com.figgity.delightindungeon.entities.EntityInit;
 import com.figgity.delightindungeon.client.renderer.WalkingMushroomRenderer;
+import com.figgity.delightindungeon.items.ItemInit;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -19,6 +20,7 @@ public class DelightInDungeon {
     public DelightInDungeon() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ItemInit.Items.register(modEventBus);
         EntityInit.ENTITY_TYPES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
