@@ -14,4 +14,7 @@ public class ItemInit {
 
     public static final RegistryObject<ForgeSpawnEggItem> WALKING_MUSHROOM_SPAWN_EGG = Items.register("walking_mushroom_spawn_egg",
             () -> new ForgeSpawnEggItem(EntityInit.WALKNG_MUSHROOM, 0xFF7676, 0xDADAD1, new Item.Properties()));
+
+    public static final RegistryObject<Item> MUSHROOM_SLICE = Items.register("mushroom_slice",
+            () -> new Item(new Item.Properties()));
 }

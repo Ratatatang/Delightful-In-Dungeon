@@ -16,6 +16,6 @@ public class EntityInit {
 
     public static final RegistryObject<EntityType<WalkingMushroomEntity>> WALKNG_MUSHROOM =
             ENTITY_TYPES.register("walking_mushroom", () -> EntityType.Builder.<WalkingMushroomEntity>of(WalkingMushroomEntity::new, MobCategory.CREATURE)
-                    .sized(1f, 0.4f)
+                    .sized(0.7f, 1.3f)
                     .build(new ResourceLocation(DelightInDungeon.MODID, "walking_mushroom").toString()));
 }

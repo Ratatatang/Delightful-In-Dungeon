@@ -3,11 +3,13 @@ package com.figgity.delightindungeon.entities.custom;
 import com.figgity.delightindungeon.entities.EntityInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.AbstractVillager;
@@ -32,11 +34,13 @@ public class WalkingMushroomEntity extends Monster {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, new Class[0]));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, Player.class, true));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
+        this.goalSelector.addGoal(3, new RestrictSunGoal(this));
+        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0));
+        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
