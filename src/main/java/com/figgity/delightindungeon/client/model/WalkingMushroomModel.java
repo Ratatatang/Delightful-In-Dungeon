@@ -74,7 +74,7 @@ public class WalkingMushroomModel extends HierarchicalModel<WalkingMushroomEntit
 
 
 		if(!entity.isInWaterOrBubble())	{
-			animateWalk(WalkingMushroomEntityAnimation.walk, limbSwing, limbSwingAmount, 1.0f, 2.5f);
+			animateWalk(WalkingMushroomEntityAnimation.walk, limbSwing, limbSwingAmount*2, 1.0f, 2.5f);
 		}
 	}
 
